@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+build
+.DS_Store
+*.pem
+npm-debug.log*
+.env*
+!.env.example
+.vercel
+next-env.d.ts.timestamp
+tsconfig.tsbuildinfo
+
+# Scratch folder of raw source media. Assets the site actually uses live in
+# public/media/ — only that directory is served. Leading slash keeps this
+# scoped to the repo root so public/media/ is NOT matched.
+/media/

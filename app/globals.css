@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   MERIDIAN — DESIGN TOKENS
+   Light theme only. Warm off-white ground, deep navy structure, one
+   restrained blue accent. No gradients, no glass, no neon.
+   ========================================================================== */
+
+@theme {
+  /* --- Surfaces -------------------------------------------------------
+     A cool, blue-grey tinted ladder. Each step is visibly distinct from
+     the one above it, so alternating bands read as structure rather than
+     as an accident of rendering. */
+  --color-paper: #ffffff;
+  --color-mist: #f4f8fc; /* lightest tinted band */
+  --color-bone: #eaf1f8; /* primary tinted band */
+  --color-bone-deep: #dde8f2; /* media wells, insets */
+
+  /* --- Navy (primary structural colour) ------------------------------- */
+  --color-navy-50: #f2f5f8;
+  --color-navy-100: #dde5ed;
+  --color-navy-200: #bccbda;
+  --color-navy-300: #8ba4bd;
+  --color-navy-400: #5b7d9c;
+  --color-navy-500: #37587a;
+  --color-navy-600: #1b3c58;
+  --color-navy-700: #142f45;
+  --color-navy-800: #0f2436;
+  --color-navy-900: #0b1b28;
+
+  /* --- Accent (professional blue, used sparingly) ---------------------- */
+  --color-accent: #1259a0;
+  --color-accent-hover: #0d4780;
+  --color-accent-soft: #dfebf7;
+
+  /* --- Secondary accent (teal) — small doses only: map nodes, markers --
+     `seafoam` is for light surfaces; `seafoam-bright` clears 3:1 against
+     navy-900 for markers sitting on the dark band. */
+  --color-seafoam: #0f6f7d;
+  --color-seafoam-bright: #2fa8b8;
+  --color-seafoam-soft: #ddeef0;
+
+  /* --- Ink / type — cooled to sit with the blue-grey surfaces ---------- */
+  --color-ink: #121821; /* charcoal, never pure black */
+  --color-ink-soft: #39424f;
+  /* `muted` and `faint` are both verified >= 4.5:1 against the darkest
+     surface in the ladder (--color-bone), since micro-labels and index
+     numbers carry meaning and must not drop below AA. */
+  --color-muted: #4b5768;
+  --color-faint: #5f6e80;
+
+  /* --- Hairlines ------------------------------------------------------- */
+  --color-rule: #dae4ee;
+  --color-rule-strong: #c2d1e0;
+
+  /* --- Type ------------------------------------------------------------ */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
+  /* --- Editorial rhythm ------------------------------------------------ */
+  --spacing-section: 7.5rem;
+  --spacing-gutter: 1.5rem;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-rule);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* sticky navbar clearance for in-page anchors */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Headline defaults — large but controlled, never screen-dominating */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 500;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+    color: var(--color-navy-900);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-navy-900);
+    color: #fff;
+  }
+
+  /* Visible, on-brand focus ring for keyboard users only */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  /* Tabular figures for all statistics / metrics */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ==========================================================================
+   COMPONENT PRIMITIVES
+   ========================================================================== */
+
+@layer components {
+  /* Editorial micro-label: uppercase, letterspaced, small */
+  .eyebrow {
+    font-size: 0.6875rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* Hairline grid rules used to structure full-bleed sections */
+  .rule-t {
+    border-top: 1px solid var(--color-rule);
+  }
+  .rule-b {
+    border-bottom: 1px solid var(--color-rule);
+  }
+}
+
+/* ==========================================================================
+   MOTION — subtle by default, absent when the user asks for less
+   ========================================================================== */
+
+/* Slow, low-opacity ring on global network hub nodes. */
+@keyframes node-pulse {
+  0% {
+    transform: scale(0.55);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
