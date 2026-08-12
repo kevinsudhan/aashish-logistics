@@ -16,15 +16,22 @@ export function CallToAction() {
       {/* Background media */}
       <div className="absolute inset-0 -z-10">
         <MediaPlaceholder
-          label="CTA BACKGROUND IMAGE / VIDEO"
-          note="Wide port, road or terminal footage. Sits behind a light scrim."
-          alt="Aerial view of a container terminal at dawn"
+          label="CTA BACKGROUND VIDEO"
+          alt="Freight operations in motion"
+          src="/media/cta-background.webm"
+          type="video"
           fill
           className="ring-0"
           sizes="100vw"
         />
-        {/* Scrim keeps text legible once real photography is dropped in */}
-        <div aria-hidden className="absolute inset-0 bg-mist/88" />
+        {/*
+          Scrim. At 88% the footage was effectively invisible; 82% keeps it a
+          quiet texture while letting it actually read. Deliberately uniform
+          rather than a horizontal gradient — the columns stack on mobile, so
+          a gradient tuned to the desktop text positions would land its light
+          band directly behind the copy on small screens.
+        */}
+        <div aria-hidden className="absolute inset-0 bg-mist/82" />
       </div>
 
       <Container>
