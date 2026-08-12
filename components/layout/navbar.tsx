@@ -101,9 +101,17 @@ export function Navbar() {
 
   return (
     <header
+      // Closing here rather than on the trigger makes the trigger, the gap
+      // beneath it and the panel one continuous hover region: the panel is a
+      // DOM descendant, so mouseleave cannot fire while the pointer is on it.
+      onMouseLeave={() => closeMega()}
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b transition-[height,background-color,border-color] duration-300 ease-out",
-        scrolled || open || megaOpen
+        // NB: deliberately not keyed to `megaOpen`. Shrinking the bar on hover
+        // moved the nav row out from under the cursor, which fired mouseleave,
+        // which closed the menu, which grew the bar back — an endless flicker.
+        // Only scroll (and the click-driven mobile panel) may change height.
+        scrolled || open
           ? "h-16 border-rule bg-paper/95 backdrop-blur-sm"
           : "h-20 border-transparent bg-paper lg:h-[88px]",
       )}
@@ -126,8 +134,8 @@ export function Navbar() {
               return (
                 <li
                   key={item.label}
-                  onMouseEnter={hasMenu ? openMega : undefined}
-                  onMouseLeave={hasMenu ? () => closeMega() : undefined}
+                  // Entering any other nav item dismisses the panel at once.
+                  onMouseEnter={hasMenu ? openMega : () => closeMega(true)}
                 >
                   <Link
                     href={item.href}
@@ -159,14 +167,13 @@ export function Navbar() {
                     />
                   </Link>
 
-                  {/* Panel is a child of the trigger's <li>, so travelling
-                      into it never fires mouseleave. It anchors to the
-                      <header>, the nearest positioned ancestor. */}
+                  {/* Anchored to the <header>, the nearest positioned
+                      ancestor. Closing is owned by the header; re-opening on
+                      enter just cancels any close already in flight. */}
                   {hasMenu ? (
                     <div
                       inert={!megaOpen}
                       onMouseEnter={openMega}
-                      onMouseLeave={() => closeMega()}
                       className={cn(
                         "absolute inset-x-0 top-full border-b border-rule bg-paper shadow-[0_16px_32px_-24px_rgba(11,27,40,0.25)] transition-[opacity,transform] duration-200 ease-out",
                         megaOpen
