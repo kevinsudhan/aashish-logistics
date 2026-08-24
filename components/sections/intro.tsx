@@ -15,13 +15,10 @@ export function Intro() {
           <div className="space-y-6 text-[0.9375rem] leading-[1.75] text-muted lg:col-span-5 lg:col-start-8">
             <Reveal delay={0.05}>
               <p>
-                We are a consolidation agent and international freight
-                forwarder. Cargo moves on our own weekly consolidation
-                programmes across core trade lanes — received, grouped and
-                loaded under our control, rather than handed to a third-party
-                groupage operator and followed at arm&rsquo;s length. One team
-                stays accountable for the shipment from the moment it is booked
-                to the moment it is delivered.
+                We are a consolidation agent. Cargo moves on our own weekly
+                consolidation programmes — received, grouped and loaded under
+                our control, rather than handed to a third-party groupage
+                operator. One team stays accountable from booking to delivery.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
