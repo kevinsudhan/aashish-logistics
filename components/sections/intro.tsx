@@ -15,20 +15,22 @@ export function Intro() {
           <div className="space-y-6 text-[0.9375rem] leading-[1.75] text-muted lg:col-span-5 lg:col-start-8">
             <Reveal delay={0.05}>
               <p>
-                We are an international freight forwarder built around a simple
-                operating principle: one team should be accountable for the
-                shipment from the moment it is booked to the moment it is
-                delivered. Booking, consolidation, customs and inland transport
-                are handled in-house rather than passed between parties.
+                We are a consolidation agent and international freight
+                forwarder. Cargo moves on our own weekly consolidation
+                programmes across core trade lanes — received, grouped and
+                loaded under our control, rather than handed to a third-party
+                groupage operator and followed at arm&rsquo;s length. One team
+                stays accountable for the shipment from the moment it is booked
+                to the moment it is delivered.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <p>
-                That structure covers full and part container loads, air freight,
-                project and out-of-gauge cargo, dangerous goods, and multimodal
-                movements issued under a single through document. Our NVOCC
-                operations give us direct control of equipment and allocation on
-                core trade lanes.
+                That structure covers full and part container loads, break
+                bulk, air freight, project and out-of-gauge cargo, dangerous
+                goods, and multimodal movements issued under a single through
+                document. Our NVOCC operations give us direct control of
+                equipment and allocation on core trade lanes.
               </p>
             </Reveal>
             <Reveal delay={0.15}>

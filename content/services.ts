@@ -3,12 +3,10 @@ import {
   Boxes,
   Container,
   FileText,
-  Forklift,
   Layers,
   MonitorSmartphone,
+  Package,
   Plane,
-  Receipt,
-  Ship,
   Stamp,
   TrainTrack,
   TriangleAlert,
@@ -81,25 +79,6 @@ const rawCategories: Array<
         icon: Container,
       },
       {
-        name: "Ocean FCL Freight Forwarding",
-        description:
-          "End-to-end management of full container shipments — booking, carrier allocation, documentation and port-to-door delivery.",
-        overview: [
-          "Full container forwarding is a scheduling discipline. We hold allocation across multiple carriers on each core lane, which means a rolled booking becomes a re-plan rather than a delay while we wait for space to reopen.",
-          "Every file is run by an operator who owns it from booking through to final delivery — including the documentation, the customs interface and the inland leg. There is no handover point at which visibility drops.",
-        ],
-        highlights: [
-          "Multi-carrier contracted allocation",
-          "Booking, rolling protection and space management",
-          "Bill of lading issuance and release control",
-          "Port-to-door and door-to-door structures",
-          "Demurrage and detention monitoring",
-        ],
-        mediaLabel: "OCEAN FREIGHT IMAGE / VIDEO",
-        mediaAlt: "Container vessel being worked at a deep-water terminal",
-        icon: Ship,
-      },
-      {
         name: "Cargo Consolidations",
         description:
           "Buyer's and shipper's consolidation programmes that combine multiple orders into a single optimised container.",
@@ -165,26 +144,6 @@ const rawCategories: Array<
       "Engineered movements for cargo that will not fit a standard box, a standard lane, or a standard schedule.",
     services: [
       {
-        name: "Project Cargo",
-        description:
-          "Feasibility studies, route surveys and lift planning for capital equipment and industrial project consignments.",
-        overview: [
-          "Project movements are decided before anything is lifted. We begin with a feasibility study and a physical route survey — bridge and axle loadings, overhead clearances, turning radii, port lifting capability and permit requirements — and only then commit to a method statement and a schedule.",
-          "The output is a documented plan with costs, dependencies and contingency routing, so the project team can programme around it with confidence rather than around an estimate.",
-        ],
-        highlights: [
-          "Feasibility studies and route surveys",
-          "Lift planning and method statements",
-          "Permit and escort coordination",
-          "Marine and inland transport engineering",
-          "Schedule and cost modelling",
-        ],
-        mediaLabel: "PROJECT CARGO IMAGE / VIDEO",
-        mediaAlt:
-          "Heavy-lift crane loading an oversized industrial module onto a vessel",
-        icon: Forklift,
-      },
-      {
         name: "Project Cargo Handling",
         description:
           "On-site supervision, lashing and securing, heavy-lift coordination and port handling for out-of-gauge units.",
@@ -202,6 +161,25 @@ const rawCategories: Array<
         mediaLabel: "PROJECT CARGO HANDLING IMAGE",
         mediaAlt: "Out-of-gauge cargo being secured on a flat rack at the quay",
         icon: Boxes,
+      },
+      {
+        name: "Break Bulk Cargo",
+        description:
+          "Non-containerised cargo loaded directly into the hold — steel, machinery, plant and oversized units handled piece by piece.",
+        overview: [
+          "Cargo that cannot be containerised is booked, tallied and stowed as individual pieces, which makes the handling plan as important as the vessel booking. We arrange the port of loading, the stevedoring and the stowage position, and supervise the tally at both ends.",
+          "Break bulk moves on liner and chartered tonnage depending on volume and lane. Where a shipment sits between break bulk and container, we price both so the decision rests on total landed cost rather than on habit.",
+        ],
+        highlights: [
+          "Steel, machinery, plant and structures",
+          "Liner and chartered break bulk tonnage",
+          "Stevedoring and stowage planning",
+          "Piece-by-piece tally and survey",
+          "Lashing, securing and dunnage",
+        ],
+        mediaLabel: "BREAK BULK CARGO IMAGE",
+        mediaAlt: "Break bulk cargo being lifted into a vessel hold",
+        icon: Package,
       },
       {
         name: "Special Equipment",
@@ -351,25 +329,6 @@ const rawCategories: Array<
         mediaLabel: "DOCUMENTATION IMAGE",
         mediaAlt: "Shipping documentation being prepared and checked",
         icon: FileText,
-      },
-      {
-        name: "DDU / DDP / Ex-Works",
-        description:
-          "Incoterms structured to your commercial position, with landed-cost visibility and duty and tax management.",
-        overview: [
-          "The Incoterm chosen determines who carries cost, risk and compliance obligation at each stage — and it is frequently selected out of habit rather than analysis. We model the alternatives against your commercial position before the contract is set.",
-          "For DDP movements we manage duty and tax settlement in the destination country, including the importer of record considerations that often make or break the arrangement.",
-        ],
-        highlights: [
-          "Ex-Works origin collection and export handling",
-          "DDU / DAP destination delivery",
-          "DDP duty and tax settlement",
-          "Importer of record guidance",
-          "Landed-cost modelling by Incoterm",
-        ],
-        mediaLabel: "TRADE TERMS IMAGE",
-        mediaAlt: "Trade terms and landed cost review in a logistics office",
-        icon: Receipt,
       },
     ],
   },

@@ -32,7 +32,7 @@ export type Solution = {
 export const solutions: Solution[] = [
   {
     id: "ocean-freight",
-    title: "Ocean Freight",
+    title: "Sea Freight",
     lede: "Contracted capacity, controlled consolidation, and one accountable operator from booking to discharge.",
     body: "We operate as both forwarder and NVOCC, which means allocation is held under our own contracts and equipment is managed as our own. Weekly consolidation programmes on core lanes give smaller consignments the transit reliability normally reserved for full-container volume.",
     capabilities: [
@@ -43,7 +43,7 @@ export const solutions: Solution[] = [
       "Inbound and outbound handling",
     ],
     media: {
-      label: "OCEAN FREIGHT IMAGE",
+      label: "SEA FREIGHT IMAGE",
       // Square to match the source asset exactly — no crop.
       ratio: "1/1",
       alt: "Operations supervisor checking documentation at the gangway as a container vessel is worked alongside",
