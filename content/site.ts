@@ -11,7 +11,7 @@ export const site = {
   wordmark: { primary: "Aashish", secondary: "Logistics Global" },
   tagline: "Global Logistics & Freight Forwarding",
   description:
-    "Aashish Logistics Global is an international freight forwarder providing integrated ocean, air, road and multimodal transportation, customs clearance and project cargo management.",
+    "Aashish Logistics Global is a cargo consolidation agent and NVOCC operator providing sea and air freight, customs clearance, break bulk and project cargo.",
   url: "https://example.com",
   foundedYear: 2026,
 } as const;

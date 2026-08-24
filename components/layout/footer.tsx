@@ -20,9 +20,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Logo tone="light" />
             <p className="mt-6 max-w-[38ch] text-sm leading-relaxed text-white/60">
-              {site.legalName} is an international freight forwarder providing
-              integrated ocean, air, road and multimodal transportation, customs
-              clearance and project cargo management.
+              {site.description}
             </p>
           </div>
 

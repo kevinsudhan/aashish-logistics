@@ -1,6 +1,6 @@
 # Aashish Logistics
 
-Corporate website for an international freight forwarder. Next.js 15 (App
+Corporate website for a cargo consolidation agent and NVOCC operator. Next.js 15 (App
 Router), TypeScript, Tailwind CSS v4, Framer Motion, Lucide icons.
 
 ```bash
@@ -15,13 +15,12 @@ npm run typecheck
 | Route               | Purpose                                                  |
 | ------------------- | -------------------------------------------------------- |
 | `/`                 | Company showcase — hero, capabilities index, network, process, digital operations, about, CTA, quote form |
-| `/services`         | Full service directory (6 practice areas, 17 services), featured solutions, project cargo |
-| `/services/[slug]`  | One page per service — statically generated for all 17    |
+| `/services`         | Full service directory (5 practice areas, 14 services) plus the featured Sea Freight and Air Freight blocks |
 | `/api/quote`        | Quote request endpoint (validates; delivery not yet wired) |
 | `/sitemap.xml`      | Generated from the service content                        |
 
-Service detail deliberately does **not** live on the homepage — the homepage
-carries only the capability index that routes into `/services`.
+Services are listed in full on `/services`; there are no per-service pages.
+The homepage carries only the capability index that routes into it.
 
 ## Where to edit content
 
@@ -31,17 +30,20 @@ edits are needed for routine content changes.
 | File                  | Contains                                                   |
 | --------------------- | ---------------------------------------------------------- |
 | `content/site.ts`     | Company name, navigation, contact details, footer links      |
-| `content/services.ts` | The 17 services: descriptions, overview copy, highlights, icons. Slugs and index numbers are derived automatically |
-| `content/solutions.ts`| The four featured solution sections on `/services`          |
+| `content/services.ts` | The 14 services: descriptions, overview copy, highlights, icons. Index numbers are derived automatically |
+| `content/solutions.ts`| The two featured solution blocks on `/services`             |
 | `content/process.ts`  | The five-step operating sequence                            |
 
-Adding a service to `content/services.ts` automatically creates its page, its
-directory row, its sitemap entry and its footer link.
+Adding a service to `content/services.ts` adds it to the directory and the
+navbar mega-menu, and renumbers the list. Counts quoted in copy are derived
+from the content, so headings follow automatically.
 
 ### Placeholder values
 
-The company name, address, phone and email are placeholders — replace them in
-`content/site.ts` before publishing.
+The address and phone in `content/site.ts` are real. The email
+(`info@example.com`) and `site.url` are still placeholders — replace both
+before publishing, since `site.url` drives `metadataBase`, canonicals and the
+sitemap.
 
 ## Media placeholders
 
@@ -68,13 +70,10 @@ Images lazy-load with a calm tonal loading state; `priority` opts the hero out
 of lazy loading. Remote asset hosts must be added to `images.remotePatterns` in
 `next.config.ts`.
 
-The global network section already uses real footage
-(`public/media/global-network.webm`, 16:9). Placeholders still awaiting assets:
-hero, each of the four featured solutions, project cargo, CTA background, and
-one per service page. The digital operations section uses a minimal static
-dashboard mock (`components/sections/digital.tsx`) rather than a media
-placeholder — replace the whole component with a `MediaPlaceholder` if you
-prefer a screenshot or screen recording.
+Assets in `public/media/` are wired up for the hero, services hero, global
+network, Sea Freight, Air Freight (video plus inset photo), the quote section
+and the CTA background. The only remaining marked placeholder is the Sea
+Freight block's secondary slot.
 
 ## Design system
 
@@ -85,8 +84,8 @@ utilities from them, so changing a token there restyles the whole site.
   `bone-deep`. Sections alternate through it to give the page tonal structure.
 - **Navy** — `navy-50` … `navy-900`, used for type and the footer anchor.
 - **Accent** — one professional blue (`accent`), used sparingly for eyebrows,
-  icons, section rules and interactive states. `seafoam` is a secondary accent
-  reserved for map nodes.
+  icons and interactive states. `seafoam-bright` is a secondary accent used
+  for the step markers on the navy process band.
 - **Type** — Inter via `next/font`, tight tracking on headings, `tnum` utility
   for tabular figures on all metrics.
 
@@ -96,14 +95,13 @@ the ladder, since micro-labels and index numbers carry meaning.
 ### Motion
 
 Deliberately minimal: an 8px rise-and-fade on scroll (`components/ui/reveal.tsx`),
-a navbar height transition, hover states on service rows, one count-up on the
-network metrics, the map route draw, and a 2.5% parallax on the project cargo
-media. Everything respects `prefers-reduced-motion`, which disables animation
-globally via `app/globals.css`.
+a scroll-driven navbar height transition, and hover states on the capability
+rows and mega-menu. Everything respects `prefers-reduced-motion`, which
+disables animation globally via `app/globals.css`.
 
-Service row descriptions expand on hover gated by `@media (hover: hover)`
-rather than by viewport width, so touch tablets show the description outright
-instead of hiding it behind an interaction they cannot perform.
+The navbar height is deliberately **not** tied to the mega-menu being open:
+shrinking the bar on hover moved the trigger out from under the cursor and
+made the menu flicker open and closed.
 
 ## Wiring the quote form
 
