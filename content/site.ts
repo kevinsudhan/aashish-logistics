@@ -48,13 +48,8 @@ export const contact = {
     detail: "24/7 shipment support",
     email: "operations@example.com",
   },
-  /**
-   * The AI quote desk. Kept separate from `phone` above, which stays the
-   * office line — the two are different routes into the business.
-   */
+  /** Availability line for the AI quote desk section. */
   desk: {
-    label: "AI Freight Desk",
-    phone: "+91 79658 54267",
     hours: "Answered 24 hours",
     languages: "English & Tamil",
   },

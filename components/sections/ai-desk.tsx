@@ -1,83 +1,65 @@
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Container, Section } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
+import { SectionHeader } from "@/components/ui/section-header";
 import { deskHeading, deskLede, deskPoints } from "@/content/ai-desk";
 import { contact } from "@/content/site";
 
 /**
- * The AI quote desk, condensed to one section: the pitch and phone CTA on the
- * left, the five substantive claims as hairline rows on the right.
+ * The AI quote desk, condensed to one section: header across the top, the
+ * five claims in a single horizontal row beneath. Kept to one line of copy
+ * per box so five columns stay shallow rather than stacking into a wall.
  */
 export function AiDesk() {
-  const telHref = `tel:${contact.desk.phone.replace(/[\s-]/g, "")}`;
-
   return (
-    <Section id="ai-desk" className="border-t border-rule bg-paper">
+    // Tighter vertical rhythm than the default section: this is a supporting
+    // band, not a headline act.
+    <Section
+      id="ai-desk"
+      className="border-t border-rule bg-paper py-16 md:py-20 lg:py-24"
+    >
       <Container>
-        <div className="grid gap-x-16 gap-y-12 lg:grid-cols-12">
-          {/* ------------------------------------------ Pitch and CTA */}
-          <div className="lg:col-span-5">
-            <Reveal>
-              <h2 className="text-[1.75rem] leading-[1.12] tracking-[-0.025em] text-navy-900 sm:text-[2.125rem] lg:text-[2.5rem]">
-                {deskHeading}
-              </h2>
-
-              <p className="mt-6 max-w-[46ch] text-[0.9375rem] leading-relaxed text-muted">
-                {deskLede}
-              </p>
-
-              <div className="mt-9">
-                <Button asChild size="lg" variant="primary">
-                  <a href={telHref}>
-                    <Phone strokeWidth={1.75} />
-                    <span className="tnum">{contact.desk.phone}</span>
-                  </a>
-                </Button>
-
-                <p className="mt-4 text-xs text-faint">
-                  {contact.desk.hours} · {contact.desk.languages}
-                </p>
-
-                <Link
-                  href="/#quote"
-                  className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-navy-900 transition-colors hover:text-accent"
-                >
-                  Or send your details instead
-                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+        <SectionHeader
+          title={deskHeading}
+          lede={deskLede}
+          aside={
+            <div>
+              <Button asChild variant="outline" size="md">
+                <Link href="/#quote">
+                  Request a Quote
+                  <ArrowRight />
                 </Link>
-              </div>
-            </Reveal>
-          </div>
+              </Button>
+              <p className="mt-3 text-xs text-faint">
+                {contact.desk.hours} · {contact.desk.languages}
+              </p>
+            </div>
+          }
+        />
 
-          {/* ---------------------------------------------- The claims */}
-          <div className="lg:col-span-6 lg:col-start-7">
-            <ul className="border-t border-rule-strong">
-              {deskPoints.map((point, i) => (
-                <Reveal
-                  as="li"
-                  key={point.title}
-                  delay={i * 0.04}
-                  className="border-b border-rule py-6"
-                >
-                  <div className="flex items-baseline gap-4">
-                    <span className="eyebrow tnum shrink-0 text-faint">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="text-[1.0625rem] font-medium leading-snug text-navy-900">
-                      {point.title}
-                    </h3>
-                  </div>
-                  <p className="mt-2 max-w-[62ch] pl-10 text-sm leading-relaxed text-muted">
-                    {point.description}
-                  </p>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-5">
+          {deskPoints.map((point, i) => (
+            <Reveal
+              as="li"
+              key={point.title}
+              delay={i * 0.04}
+              className="flex flex-col rounded-xl border border-rule bg-mist p-5 sm:last:col-span-2 lg:last:col-span-1"
+            >
+              <span className="eyebrow tnum text-faint">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 text-[0.9375rem] font-medium leading-snug text-navy-900">
+                {point.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {point.description}
+              </p>
+            </Reveal>
+          ))}
+        </ul>
       </Container>
     </Section>
   );
