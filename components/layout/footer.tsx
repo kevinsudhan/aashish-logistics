@@ -48,12 +48,18 @@ export function Footer() {
                 <dt className="text-xs uppercase tracking-[0.14em] text-white/45">
                   Telephone
                 </dt>
-                <dd className="mt-2 text-sm">
+                <dd className="mt-2 space-y-1 text-sm">
                   <a
                     href={`tel:${contact.phoneDial}`}
-                    className="text-white/80 transition-colors hover:text-white"
+                    className="block text-white/80 transition-colors hover:text-white"
                   >
                     {contact.phone}
+                  </a>
+                  <a
+                    href={`tel:${contact.mobileDial}`}
+                    className="block text-white/80 transition-colors hover:text-white"
+                  >
+                    {contact.mobile}
                   </a>
                 </dd>
               </div>

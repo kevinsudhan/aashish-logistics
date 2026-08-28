@@ -42,9 +42,11 @@ export const contact = {
     "3rd Main Road, Anna Nagar",
     "Chennai - 600040",
   ],
-  /** Displayed as given; `phoneDial` is the E.164 form used in tel: links. */
+  /** Displayed as given; the `*Dial` forms are E.164, used in tel: links. */
   phone: "044 4811 6348",
   phoneDial: "+914448116348",
+  mobile: "+91 97908 48744",
+  mobileDial: "+919790848744",
   email: "info@example.com",
   operations: {
     label: "Operations Desk",
