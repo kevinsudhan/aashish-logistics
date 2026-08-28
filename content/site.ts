@@ -11,7 +11,7 @@ export const site = {
   wordmark: { primary: "Aashish", secondary: "Logistics Global" },
   tagline: "Cargo Consolidation & Global Logistics",
   description:
-    "Aashish Logistics Global is a cargo consolidation agent and NVOCC operator providing sea and air freight, customs clearance, break bulk and project cargo.",
+    "Aashish Logistics Global is a cargo consolidation agent and NVOCC operator providing sea and air freight, break bulk and project cargo.",
   /** Canonical origin. Drives metadataBase, canonicals, OG URLs, sitemap. */
   url: "https://aashishlogisticsglobal.com",
   foundedYear: 2026,
