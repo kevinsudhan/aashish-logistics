@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify form definitions</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <!--
+      Netlify registers forms by scanning static HTML at deploy time. Next.js
+      renders the real form through its own runtime, which that scanner never
+      sees, so the form is declared here instead. Every field below must match
+      a field name in components/sections/contact.tsx, or the value is dropped
+      from the notification email.
+
+      This file is not linked from anywhere and is marked noindex.
+    -->
+    <form name="quote" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="quote" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

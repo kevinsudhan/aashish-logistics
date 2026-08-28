@@ -12,6 +12,9 @@ import { contact } from "@/content/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+/** Must match the form declared in public/__forms.html. */
+const FORM_NAME = "quote";
+
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
@@ -22,20 +25,27 @@ export function Contact() {
     setError(null);
 
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+
+    // Netlify Forms expects a URL-encoded body with the form name included.
+    const body = new URLSearchParams();
+    body.append("form-name", FORM_NAME);
+    new FormData(form).forEach((value, key) => {
+      if (typeof value === "string") body.append(key, value);
+    });
 
     try {
-      const response = await fetch("/api/quote", {
+      const response = await fetch("/__forms.html", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
       });
 
+      // Only report success once Netlify has actually accepted the
+      // submission. A failure here must not look like a delivered enquiry.
       if (!response.ok) {
-        const payload = (await response.json().catch(() => null)) as {
-          error?: string;
-        } | null;
-        throw new Error(payload?.error ?? "Something went wrong.");
+        throw new Error(
+          `We could not send your enquiry (error ${response.status}). Please email ${contact.email} or call us instead.`,
+        );
       }
 
       form.reset();
@@ -44,7 +54,7 @@ export function Contact() {
       setError(
         submitError instanceof Error
           ? submitError.message
-          : "Something went wrong.",
+          : `We could not send your enquiry. Please email ${contact.email} or call us instead.`,
       );
       setStatus("error");
     }
@@ -106,7 +116,22 @@ export function Contact() {
                   </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} noValidate={false}>
+                <form
+                  name={FORM_NAME}
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                  noValidate={false}
+                >
+                  <input type="hidden" name="form-name" value={FORM_NAME} />
+                  {/* Spam trap: hidden from people, filled in by bots. */}
+                  <p className="hidden">
+                    <label>
+                      Leave this field empty
+                      <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                    </label>
+                  </p>
+
                   {/* Direct email route, offered before the fields */}
                   <div className="mb-8 border-b border-rule pb-6">
                     <p className="text-[0.9375rem] leading-relaxed text-navy-800">
