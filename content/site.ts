@@ -47,7 +47,7 @@ export const contact = {
   phoneDial: "+914448116348",
   mobile: "+91 97908 48744",
   mobileDial: "+919790848744",
-  email: "info@example.com",
+  email: "info@aashishlogistics.com",
   operations: {
     label: "Operations Desk",
     detail: "24/7 shipment support",
