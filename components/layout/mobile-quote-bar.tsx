@@ -52,7 +52,7 @@ export function MobileQuoteBar() {
     >
       <div className="flex items-stretch">
         <a
-          href={`tel:${contact.phone.replace(/\s/g, "")}`}
+          href={`tel:${contact.phoneDial}`}
           tabIndex={shown ? 0 : -1}
           className="flex flex-1 items-center justify-center gap-2 border-r border-rule py-4 text-sm font-medium text-navy-900"
         >

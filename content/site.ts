@@ -12,7 +12,8 @@ export const site = {
   tagline: "Cargo Consolidation & Global Logistics",
   description:
     "Aashish Logistics Global is a cargo consolidation agent and NVOCC operator providing sea and air freight, customs clearance, break bulk and project cargo.",
-  url: "https://example.com",
+  /** Canonical origin. Drives metadataBase, canonicals, OG URLs, sitemap. */
+  url: "https://aashishlogisticsglobal.com",
   foundedYear: 2026,
 } as const;
 
@@ -41,7 +42,9 @@ export const contact = {
     "3rd Main Road, Anna Nagar",
     "Chennai - 600040",
   ],
-  phone: "+91 97908 48744",
+  /** Displayed as given; `phoneDial` is the E.164 form used in tel: links. */
+  phone: "044 4811 6348",
+  phoneDial: "+914448116348",
   email: "info@example.com",
   operations: {
     label: "Operations Desk",

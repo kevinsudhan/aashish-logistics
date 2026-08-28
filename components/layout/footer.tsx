@@ -50,7 +50,7 @@ export function Footer() {
                 </dt>
                 <dd className="mt-2 text-sm">
                   <a
-                    href={`tel:${contact.phone.replace(/[\s-]/g, "")}`}
+                    href={`tel:${contact.phoneDial}`}
                     className="text-white/80 transition-colors hover:text-white"
                   >
                     {contact.phone}
