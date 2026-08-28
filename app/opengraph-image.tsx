@@ -56,7 +56,7 @@ export default function OpengraphImage() {
               marginBottom: 28,
             }}
           >
-            Global Logistics &amp; Freight Forwarding
+            Cargo Consolidation &amp; Global Logistics
           </div>
           <div
             style={{

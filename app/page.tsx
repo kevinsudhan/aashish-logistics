@@ -1,4 +1,5 @@
 import { MobileQuoteBar } from "@/components/layout/mobile-quote-bar";
+import { AiDesk } from "@/components/sections/ai-desk";
 import { Capabilities } from "@/components/sections/capabilities";
 import { Contact } from "@/components/sections/contact";
 import { GlobalNetwork } from "@/components/sections/global-network";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Capabilities />
       <GlobalNetwork />
       <Process />
+      <AiDesk />
       <Contact />
       <MobileQuoteBar />
     </>

@@ -47,7 +47,7 @@ export function Hero() {
               className="eyebrow flex items-center gap-3 text-accent"
             >
               <span aria-hidden className="h-px w-8 bg-accent/50" />
-              Global Logistics &amp; Freight Forwarding
+              Cargo Consolidation &amp; Global Logistics
             </motion.p>
 
             <motion.h1
@@ -63,9 +63,9 @@ export function Hero() {
               {...rise(0.16)}
               className="mt-7 max-w-[46ch] text-[1.0625rem] leading-relaxed text-muted"
             >
-              We provide integrated freight forwarding, transportation, customs
-              and logistics solutions — moving your cargo across ocean, air and
-              road under a single point of accountability.
+              We consolidate and move cargo across ocean, air and road — our
+              own consolidation programmes, customs clearance and inland
+              transport under a single point of accountability.
             </motion.p>
 
             <motion.div {...rise(0.24)} className="mt-10 flex flex-wrap gap-3">
@@ -154,7 +154,7 @@ export function Hero() {
       <div className="border-t border-rule">
         <Container className="flex flex-wrap items-center justify-between gap-4 py-4">
           <span className="eyebrow text-faint">
-            Freight Forwarding · Customs · Project Cargo · Multimodal
+            Consolidation · Sea &amp; Air Freight · Customs · Break Bulk
           </span>
           <Link
             href="#about"

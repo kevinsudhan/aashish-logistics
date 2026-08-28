@@ -9,7 +9,7 @@ export const site = {
   legalName: "Aashish Logistics Global",
   /** Two-line lockup rendered by the logo mark. */
   wordmark: { primary: "Aashish", secondary: "Logistics Global" },
-  tagline: "Global Logistics & Freight Forwarding",
+  tagline: "Cargo Consolidation & Global Logistics",
   description:
     "Aashish Logistics Global is a cargo consolidation agent and NVOCC operator providing sea and air freight, customs clearance, break bulk and project cargo.",
   url: "https://example.com",
@@ -47,6 +47,16 @@ export const contact = {
     label: "Operations Desk",
     detail: "24/7 shipment support",
     email: "operations@example.com",
+  },
+  /**
+   * The AI quote desk. Kept separate from `phone` above, which stays the
+   * office line — the two are different routes into the business.
+   */
+  desk: {
+    label: "AI Freight Desk",
+    phone: "+91 79658 54267",
+    hours: "Answered 24 hours",
+    languages: "English & Tamil",
   },
 } as const;
 

@@ -21,7 +21,9 @@ export const metadata: Metadata = {
   },
   description: site.description,
   keywords: [
-    "freight forwarding",
+    "cargo consolidation",
+    "consolidation agent",
+    "LCL consolidation",
     "ocean freight",
     "air freight",
     "project cargo",
@@ -70,7 +72,7 @@ const organizationSchema = {
   description: site.description,
   areaServed: "Worldwide",
   knowsAbout: [
-    "Freight forwarding",
+    "Cargo consolidation",
     "Ocean freight",
     "Air freight",
     "Customs clearance",

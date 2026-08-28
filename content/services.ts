@@ -343,7 +343,7 @@ const rawCategories: Array<
         description:
           "Shipment tracking, milestone alerts, digital document access and a named operational contact in a single interface.",
         overview: [
-          "Freight forwarding is an information business as much as a transport one. Our digital layer exposes the same operational record our own teams work from, so planning, finance and warehouse teams are not waiting on an email to know where cargo stands.",
+          "Consolidation is an information business as much as a transport one. Our digital layer exposes the same operational record our own teams work from, so planning, finance and warehouse teams are not waiting on an email to know where cargo stands.",
           "Tracking runs at container and air waybill level across every leg. Milestone and exception alerts are routed to the people who need to act on them, and documents are issued and archived against the shipment record.",
         ],
         highlights: [

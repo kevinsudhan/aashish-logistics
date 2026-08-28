@@ -37,7 +37,7 @@ export function numberWord(count: number) {
   return NUMBER_WORDS[count] ?? String(count);
 }
 
-/** "Ocean FCL Freight Forwarding" -> "ocean-fcl-freight-forwarding" */
+/** "Break Bulk Cargo" -> "break-bulk-cargo" */
 export function slugify(value: string) {
   return value
     .toLowerCase()
