@@ -51,7 +51,7 @@ export const contact = {
   /** Availability line for the AI quote desk section. */
   desk: {
     hours: "Answered 24 hours",
-    languages: "English & Tamil",
+    languages: "English and 22 Indian languages",
   },
 } as const;
 

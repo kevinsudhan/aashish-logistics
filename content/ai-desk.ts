@@ -20,9 +20,9 @@ export const deskPoints: DeskPoint[] = [
       "Every call picked up immediately — no queue, no callback. Ten callers at once, ten answered.",
   },
   {
-    title: "Tamil and English",
+    title: "Speak your own language",
     description:
-      "Describe cargo as you would to a colleague. The desk follows you mid-sentence between languages.",
+      "English and 22 Indian languages, switched mid-sentence the way people actually talk — and remembered for next time.",
   },
   {
     title: "A real rate card",

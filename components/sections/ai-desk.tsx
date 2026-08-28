@@ -1,7 +1,3 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-
-import { Button } from "@/components/ui/button";
 import { Container, Section } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -26,17 +22,9 @@ export function AiDesk() {
           title={deskHeading}
           lede={deskLede}
           aside={
-            <div>
-              <Button asChild variant="outline" size="md">
-                <Link href="/#quote">
-                  Request a Quote
-                  <ArrowRight />
-                </Link>
-              </Button>
-              <p className="mt-3 text-xs text-faint">
-                {contact.desk.hours} · {contact.desk.languages}
-              </p>
-            </div>
+            <p className="text-xs text-faint">
+              {contact.desk.hours} · {contact.desk.languages}
+            </p>
           }
         />
 
