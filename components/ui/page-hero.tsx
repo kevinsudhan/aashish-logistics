@@ -47,12 +47,17 @@ export function PageHero({
               media && "lg:items-center",
             )}
           >
-            <h1 className="text-[2.125rem] leading-[1.08] tracking-[-0.03em] text-navy-900 sm:text-[2.75rem] lg:col-span-6 lg:text-[3.25rem]">
+            <h1 className={cn(
+                "text-[2.125rem] leading-[1.08] tracking-[-0.03em] text-navy-900 sm:text-[2.75rem] lg:text-[3.25rem]",
+                // Give the media room when it is present; the lede layout
+                // keeps the wider headline column.
+                media ? "lg:col-span-5" : "lg:col-span-6",
+              )}>
               {title}
             </h1>
 
             {media ? (
-              <div className="lg:col-span-5 lg:col-start-8">{media}</div>
+              <div className="lg:col-span-7 lg:col-start-6">{media}</div>
             ) : lede ? (
               <div className="max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted lg:col-span-5 lg:col-start-8 lg:self-end">
                 {lede}

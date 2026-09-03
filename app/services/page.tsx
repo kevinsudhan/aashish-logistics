@@ -28,7 +28,7 @@ export default function ServicesPage() {
             src="/media/services-hero.webm"
             type="video"
             ratio="4/3"
-            sizes="(min-width: 1024px) 40vw, 100vw"
+            sizes="(min-width: 1024px) 56vw, 100vw"
             className="rounded-2xl"
           />
         }
