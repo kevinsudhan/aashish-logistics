@@ -33,14 +33,17 @@ export function PageHero({
   return (
     <div
       className={cn(
-        "border-b border-rule bg-bone pt-28 lg:pt-36",
+        "relative overflow-hidden border-b border-rule bg-bone pt-28 lg:pt-36",
         className,
       )}
     >
       <Container>
-        <Breadcrumb crumbs={crumbs} />
+        {/* z-10 keeps the copy above the media that bleeds in behind it. */}
+        <div className="relative z-10">
+          <Breadcrumb crumbs={crumbs} />
+        </div>
 
-        <Reveal className="mt-10 lg:mt-14">
+        <Reveal className="relative z-10 mt-10 lg:mt-14">
           <div
             className={cn(
               "grid gap-x-12 gap-y-8 pb-16 lg:grid-cols-12 lg:pb-24",
@@ -49,22 +52,41 @@ export function PageHero({
           >
             <h1 className={cn(
                 "text-[2.125rem] leading-[1.08] tracking-[-0.03em] text-navy-900 sm:text-[2.75rem] lg:text-[3.25rem]",
-                // Give the media room when it is present; the lede layout
-                // keeps the wider headline column.
-                media ? "lg:col-span-5" : "lg:col-span-6",
+                media ? "lg:col-span-6" : "lg:col-span-6",
               )}>
               {title}
             </h1>
 
-            {media ? (
-              <div className="lg:col-span-7 lg:col-start-6">{media}</div>
-            ) : lede ? (
+            {lede && !media ? (
               <div className="max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted lg:col-span-5 lg:col-start-8 lg:self-end">
                 {lede}
               </div>
             ) : null}
           </div>
         </Reveal>
+
+        {/*
+          Media. In flow on small screens; from lg it is lifted out and pinned
+          to the right edge of the band — not the container — so it bleeds off
+          the viewport. Two gradients feather its left edge and its top and
+          bottom into the band colour, so it reads as part of the section
+          rather than a card sitting on it. Its 16:9 shape is preserved.
+        */}
+        {media ? (
+          <div className="mb-12 lg:absolute lg:inset-y-0 lg:right-0 lg:z-0 lg:mb-0 lg:flex lg:w-[58%] lg:items-center xl:w-[54%]">
+            <div className="relative w-full">
+              {media}
+              <div
+                aria-hidden
+                className="absolute inset-0 hidden lg:block"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, var(--color-bone) 0%, color-mix(in oklab, var(--color-bone) 55%, transparent) 32%, transparent 70%), linear-gradient(to bottom, var(--color-bone) 0%, transparent 22%, transparent 78%, var(--color-bone) 100%)",
+                }}
+              />
+            </div>
+          </div>
+        ) : null}
 
         {meta && meta.length > 0 ? (
           <dl className="grid grid-cols-1 border-t border-rule sm:grid-cols-3">

@@ -27,9 +27,9 @@ export default function ServicesPage() {
             alt="Laden container vessel under way at sea"
             src="/media/services-hero.webm"
             type="video"
-            ratio="4/3"
-            sizes="(min-width: 1024px) 56vw, 100vw"
-            className="rounded-2xl"
+            ratio="16/9"
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            className="rounded-2xl lg:rounded-none"
           />
         }
         meta={[
