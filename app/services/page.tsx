@@ -24,7 +24,7 @@ export default function ServicesPage() {
         media={
           <MediaPlaceholder
             label="SERVICES HERO VIDEO"
-            alt="Freight operations across ocean, air and road"
+            alt="Laden container vessel under way at sea"
             src="/media/services-hero.webm"
             type="video"
             ratio="4/3"
