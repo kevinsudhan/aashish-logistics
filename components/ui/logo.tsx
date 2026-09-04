@@ -1,3 +1,4 @@
+import { AnimatedMark } from "@/components/ui/animated-mark";
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
@@ -10,11 +11,14 @@ export function Logo({
   className,
   tone = "dark",
   showWordmark = true,
+  animatedMark = false,
 }: {
   className?: string;
   /** "dark" = navy mark on light ground, "light" = white mark on dark ground */
   tone?: "dark" | "light";
   showWordmark?: boolean;
+  /** Cycle the container / ship / aircraft marks instead of the static mark. */
+  animatedMark?: boolean;
 }) {
   const isLight = tone === "light";
 
@@ -23,7 +27,8 @@ export function Logo({
       className={cn("inline-flex items-center gap-2.5", className)}
       aria-label={`${site.legalName} home`}
     >
-      <svg
+      {animatedMark ? <AnimatedMark /> : null}
+      {animatedMark ? null : <svg
         viewBox="0 0 28 28"
         className={cn("h-7 w-7 shrink-0", isLight ? "text-white" : "text-navy-900")}
         aria-hidden
@@ -50,7 +55,7 @@ export function Logo({
           strokeWidth="1.75"
         />
         <circle cx="21" cy="7" r="2.25" fill="currentColor" />
-      </svg>
+      </svg>}
 
       {showWordmark ? (
         <span className="flex flex-col leading-none">

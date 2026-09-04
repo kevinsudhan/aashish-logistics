@@ -122,7 +122,7 @@ export function Navbar() {
           className="shrink-0 rounded-[2px]"
           onClick={() => setOpen(false)}
         >
-          <Logo />
+          <Logo animatedMark />
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">
