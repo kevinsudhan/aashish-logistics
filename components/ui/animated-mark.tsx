@@ -38,7 +38,12 @@ export function AnimatedMark({ className }: { className?: string }) {
   return (
     <span
       aria-hidden
-      className={cn("relative block h-8 w-24 shrink-0 overflow-hidden", className)}
+      className={cn(
+        // Tall enough that the container mark — the deepest of the three —
+        // fills the width rather than leaving a gap before the wordmark.
+        "relative block h-11 w-24 shrink-0 overflow-hidden",
+        className,
+      )}
     >
       {reduced ? (
         // eslint-disable-next-line @next/next/no-img-element
